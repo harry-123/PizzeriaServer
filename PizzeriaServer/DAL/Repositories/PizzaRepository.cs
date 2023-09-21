@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PizzeriaServer.DAL.IRepositories;
 using PizzeriaServer.DbContext;
 using PizzeriaServer.Models;

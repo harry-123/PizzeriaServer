@@ -6,7 +6,9 @@ public class OrderItem
     public int PizzaId { get; set; }
     public int SizeId { get; set; }
     public int OrderId { get; set; }
-    
+    public int NetPrice { get; set; }
+    public int Quantity { get; set; }
+
     // Navigation Properties
     public Pizza Pizza { get; set; }
     public PizzaSize PizzaSize { get; set; }

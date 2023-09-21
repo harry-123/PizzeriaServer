@@ -1,7 +1,10 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using PizzeriaServer.DAL.IRepositories;
 using PizzeriaServer.DAL.Repositories;
 using PizzeriaServer.DbContext;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +19,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration["ConnectionStrings:Pizzeria"]);
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 builder.Services.AddTransient<IPizzaRepository, PizzaRepository>();
+builder.Services.AddTransient<IOrdersRepository, OrdersRepository>();
 
 var app = builder.Build();
 

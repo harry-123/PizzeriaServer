@@ -120,6 +120,12 @@ public class ApplicationDbContext : Microsoft.EntityFrameworkCore.DbContext
             .WithMany(x => x.OrderItems)
             .HasForeignKey(x => x.SizeId)
             .IsRequired();
+        builder.Entity<OrderItem>()
+            .Property(x => x.Quantity)
+            .IsRequired();
+        builder.Entity<OrderItem>()
+            .Property(x => x.NetPrice)
+            .IsRequired();
         
         builder.Entity<OrderItemIngredient>()
             .Property(x => x.Id)
