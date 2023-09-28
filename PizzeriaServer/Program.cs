@@ -1,5 +1,4 @@
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using PizzeriaServer.DAL.IRepositories;
 using PizzeriaServer.DAL.Repositories;

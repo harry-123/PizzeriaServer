@@ -4,6 +4,6 @@ namespace PizzeriaServer.DAL.IRepositories;
 
 public interface IPizzaRepository
 {
-    List<Pizza> GetPizzas();
-    List<Ingredient> GetPizzaIngredients();
+    Task<List<Pizza>> GetPizzas();
+    Task<List<Ingredient>> GetPizzaIngredients();
 }

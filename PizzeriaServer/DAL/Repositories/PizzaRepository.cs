@@ -14,22 +14,22 @@ public class PizzaRepository : IPizzaRepository
         _dbContext = dbContext;
     }
     
-    public List<Pizza> GetPizzas()
+    public async Task<List<Pizza>> GetPizzas()
     {
-        var pizzas = _dbContext.Pizzas
+        var pizzas = await _dbContext.Pizzas
             .Include(x => x.Prices)
             .ThenInclude(x => x.PizzaSize)
-            .ToList();
+            .ToListAsync();
         return pizzas;
     }
 
-    public List<Ingredient> GetPizzaIngredients()
+    public async Task<List<Ingredient>> GetPizzaIngredients()
     {
-        var ingredients = _dbContext.Ingredients
+        var ingredients = await _dbContext.Ingredients
             .Include(x => x.IngredientType)
             .Include(x => x.IngredientPrices)
             .ThenInclude(x => x.PizzaSize)
-            .ToList();
+            .ToListAsync();
         return ingredients;
     }
 }

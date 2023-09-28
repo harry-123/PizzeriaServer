@@ -27,7 +27,7 @@ public class PizzaController : ControllerBase
     {
         try
         {
-            var pizzas = _pizzaRepository.GetPizzas();
+            var pizzas = await _pizzaRepository.GetPizzas();
             return Ok(pizzas.Select(p => _mapper.Map<Pizza, PizzaDto>(p)).ToList());
         }
         catch (Exception ex)
@@ -42,7 +42,7 @@ public class PizzaController : ControllerBase
     {
         try
         {
-            var ingredients = _pizzaRepository.GetPizzaIngredients();
+            var ingredients = await _pizzaRepository.GetPizzaIngredients();
             return Ok(ingredients.Select(i => _mapper.Map<Ingredient, IngredientDto>(i)).ToList());
         }
         catch (Exception ex)
